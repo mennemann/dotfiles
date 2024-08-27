@@ -22,4 +22,16 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", {})
 vim.keymap.set("n", "<C-u>", "<C-u>zz", {})
 vim.keymap.set("n", "<leader>u", ":e!<CR>", {})
 vim.keymap.set("n", "<A-z>", ":set wrap!<CR>")
+
 vim.keymap.set("n", "<leader>w", "<C-w>")
+
+vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>")
+vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>")
+vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>")
+vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>")
+
+vim.keymap.set("n", "<leader>w<CR>", ":term<CR>")
+
+vim.keymap.set("n", "<leader>wm", ":WinShift<CR>")
+
+
