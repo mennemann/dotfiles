@@ -34,4 +34,9 @@ vim.keymap.set("n", "<leader>w<CR>", ":term<CR>")
 
 vim.keymap.set("n", "<leader>wm", ":WinShift<CR>")
 
-
+if vim.fn.has('win32') == 1 then
+    vim.cmd("language en_US")
+    vim.keymap.set("n", "<leader>r", ":!explorer %:h<CR><CR>")
+elseif vim.fn.has('unix') == 1 then
+    vim.keymap.set("n", "<leader>r", ":silent !xdg-open %:h &<CR>")
+end
