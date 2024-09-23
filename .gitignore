@@ -5,3 +5,9 @@
 
 !hypr/
 !hypr/**
+
+!waybar/
+!waybar/**
+
+!dunst
+!dunst/**

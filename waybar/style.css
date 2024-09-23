@@ -1,0 +1,98 @@
+* {
+	font-size: 14px;
+	font-family: "JetBrainsMono NF";
+
+	margin: 0;
+	padding: 1px 0;
+}
+
+window#waybar {
+	background: #282a36;
+	color: #f8f8f2;
+    border-radius: 0;
+}
+
+tooltip {
+	background: #282a36;
+	border: 1px solid #bd93f9;
+	border-radius: 10px;
+}
+
+tooltip label {
+	color: #f8f8f2;
+}
+
+#workspaces button {
+	color: #f8f8f2;
+	padding-right: 5px;
+}
+
+#workspaces button:hover {
+	background: #282a36;
+	border: #282a36;
+    color: #bd93f9;
+
+	transition: none;
+	box-shadow:none;
+}
+
+#window {
+    color: #6272a4;
+	padding: 4px 10px;
+}
+
+#memory {
+	color: #ffb86c;
+	padding: 4px 10px;
+}
+
+#cpu {
+	color: #8be9fd;
+	padding: 4px 10px;
+}
+
+#tray {
+	padding: 4px 10px;
+}
+
+#disk {
+	color: #50fa7b;
+	padding: 4px 10px;
+}
+
+#battery {
+    color: #f8f8f2;
+	padding: 4px 10px;
+}
+
+#battery.critical {
+	background: #ff3535;
+}
+
+#network {
+    color: #f8f8f2;
+	padding: 4px 10px;
+}
+
+#bluetooth {
+    color: #f8f8f2;
+	padding: 4px 10px;
+}
+
+#clock {
+    color: #50fa7b;
+	padding: 4px 10px;
+}
+
+#wireplumber {
+    padding: 4px 10px;
+}
+
+#wireplumber.muted tooltip {
+    color: #000000;
+}
+
+#custom-wlogout {
+	padding-left: 16px;
+	padding-right: 12px;
+}

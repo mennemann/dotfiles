@@ -1,0 +1,113 @@
+{
+	"layer": "top",
+	"position": "top",
+
+	"modules-left": [
+        "custom/wlogout",
+        "cpu",
+        "memory",
+		"hyprland/workspaces",
+		"tray"
+	],
+	"modules-center": [
+        "hyprland/window"
+	],
+	"modules-right": [
+        "idle_inhibitor",
+        "wireplumber",
+        "network",
+        "bluetooth",
+        "battery",
+		"clock"
+	],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "active": "",
+            "urgent": ""
+	    }
+    },
+	"clock": {
+        "interval": 1,
+        "format": "  {:%H:%M:%S}",
+        "format-alt": "  {:%a %d.%m.%Y}",
+		"tooltip": false
+	},
+	"hyprland/window": {
+		"max-length": 70,
+		"separate-outputs": false
+	},
+	"memory": {
+		"interval": 5,
+		"format": "󰍛 {}%"
+	},
+	"cpu": {
+		"interval": 5,
+		"format": "󰧑 {usage:2}%"
+	},
+    "bluetooth": {
+        "format-on": "󰂯",
+        "format-off": "󰂲",
+        "format-disabled": "",
+        "format-connected": "󰂱 {num_connections}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
+    },
+    "network": {
+        "interval": 3,
+        "format-icons": [
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
+        ],
+        "format-wifi": "{icon}",
+        "format-ethernet": "",
+        "format-disconnected": "󰤮",
+        "on-click": "kitty -e nmtui",
+        "tooltip-format-wifi": "SSID: {essid}\n{ifname}: {ipaddr}",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}",
+        "tooltip-format-disconnected": "Disconnected"
+    },
+	"tray": {
+		"icon-size": 20,
+		"spacing": 8
+	},
+    "battery": {
+        "interval": 5,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󱘖 {capacity}%",
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "on-click": "",
+        "tooltip": false
+    },
+    "wireplumber": {
+        "format": "{icon}",
+        "format-muted": "",
+        "format-icons": ["",""],
+    },
+    "custom/wlogout": {
+        "format": "⏻",
+        "on-click": "wlogout",
+        "tooltip": false
+    }
+}
