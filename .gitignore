@@ -1,2 +1,7 @@
 *
-!nvim/*
+
+!nvim/
+!nvim/**
+
+!hypr/
+!hypr/**
