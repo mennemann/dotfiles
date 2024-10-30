@@ -12,7 +12,7 @@ return {
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "ruff_lsp", "pyright", "clangd" },
+			ensure_installed = { "lua_ls", "ruff", "pyright", "clangd" },
 		})
 
 		require("mason-lspconfig").setup_handlers({
@@ -21,29 +21,13 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-			["ruff_lsp"] = function()
-				lspconfig["ruff_lsp"].setup({
+			["ruff"] = function()
+				lspconfig.ruff.setup({
 					capabilities = capabilities,
 					init_options = {
 						settings = {
-							--	args = { "--select", "ALL" },
-						},
-					},
-					on_attach = function(client, bufnr)
-						client.server_capabilities.hoverProvider = false
-					end,
-				})
-			end,
-			["pyright"] = function()
-				lspconfig.pyright.setup({
-					capabilities = capabilities,
-					settings = {
-						pyright = {
-							disableOrganizeImports = true,
-						},
-						python = {
-							analysis = {
-								ignore = { "*" },
+							lint = {
+								-- select = { "ALL" },
 							},
 						},
 					},

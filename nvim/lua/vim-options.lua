@@ -32,6 +32,8 @@ vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>w<CR>", ":term<CR>")
 vim.keymap.set("n", "<leader>wm", ":WinShift<CR>")
 
+vim.keymap.set("n", "´", "`")
+
 if vim.fn.has('win32') == 1 then
     vim.cmd("language en_US")
     vim.keymap.set("n", "<leader>r", ":!explorer %:h<CR><CR>")
