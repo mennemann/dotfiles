@@ -16,7 +16,7 @@ vim.cmd("set scrolloff=8")
 vim.cmd("set noshowmode")
 
 vim.wo.relativenumber = true
-vim.opt.signcolumn = "number"
+vim.opt.signcolumn = "auto"
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", {})
 vim.keymap.set("n", "<C-u>", "<C-u>zz", {})

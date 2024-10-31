@@ -7,6 +7,16 @@ return {
     },
     config = function ()
         local dap = require("dap")
+        local dapui = require("dapui")
+
+        vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#ff2f2f' })
+        vim.fn.sign_define('DapBreakpoint', { text='⬤', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+
+        vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, {})
+        vim.keymap.set("n", "<leader>d<CR>", dap.continue, {})
+        vim.keymap.set("n", "<leader>dr", function() dapui.open({ reset = true }) end, {})
+        vim.keymap.set("n", "<leader>d<Esc>", function () dap.close(); dapui.close() end, {})
+
 
         require("dap-python").setup("python3")
 
@@ -15,10 +25,6 @@ return {
             command = "gdb",
             args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
         }
-
-
-        vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, {})
-        vim.keymap.set("n", "<leader>d<CR>", dap.continue, {})
 
         local c_cpp_config = {
             {
@@ -30,37 +36,13 @@ return {
                 end,
                 cwd = "${workspaceFolder}",
                 stopAtBeginningOfMainSubprogram = false,
-            },
-            {
-                name = "Select and attach to process",
-                type = "gdb",
-                request = "attach",
-                program = function()
-                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-                end,
-                pid = function()
-                    local name = vim.fn.input('Executable name (filter): ')
-                    return require("dap.utils").pick_process({ filter = name })
-                end,
-                cwd = '${workspaceFolder}'
-            },
-            {
-                name = 'Attach to gdbserver :1234',
-                type = 'gdb',
-                request = 'attach',
-                target = 'localhost:1234',
-                program = function()
-                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-                end,
-                cwd = '${workspaceFolder}'
-            },
+            }
         }
 
         dap.configurations.c = c_cpp_config
         dap.configurations.cpp = c_cpp_config
 
 
-        local dapui = require("dapui")
         dapui.setup()
         dap.listeners.before.attach.dapui_config = function()
             dapui.open()
