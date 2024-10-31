@@ -27,7 +27,8 @@ return {
 					init_options = {
 						settings = {
 							lint = {
-								-- select = { "ALL" },
+								select = { "ALL" },
+                                ignore = { "D", "CPY", "F401", "E501", "S101", "PLR2004", "ANN", "C901", "T20" },
 							},
 						},
 					},
