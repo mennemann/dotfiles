@@ -33,6 +33,7 @@ vim.keymap.set("n", "<leader>w<CR>", ":term<CR>")
 vim.keymap.set("n", "<leader>wm", ":WinShift<CR>")
 
 vim.keymap.set("n", "´", "`")
+vim.keymap.set("x", "p", "P")
 
 if vim.fn.has('win32') == 1 then
     vim.cmd("language en_US")
