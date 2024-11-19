@@ -28,7 +28,7 @@ return {
 						settings = {
 							lint = {
 								select = { "ALL" },
-                                ignore = { "D", "CPY", "F401", "E501", "S101", "PLR2004", "ANN", "C901", "T20" },
+                                ignore = { "D", "CPY", "F401", "E501", "S101", "PLR2004", "ANN", "C901", "T20", "FA", "PLR0911", "PLR0912", "E303", "E225", "E226", "E227", "E228", "E231", "FBT", "ERA", "S311", "ARG" },
 							},
 						},
 					},

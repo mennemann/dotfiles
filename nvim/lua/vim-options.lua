@@ -35,9 +35,28 @@ vim.keymap.set("n", "<leader>wm", ":WinShift<CR>")
 vim.keymap.set("n", "´", "`")
 vim.keymap.set("x", "p", "P")
 
+vim.keymap.set("n", "M", function()
+    local mark = vim.fn.nr2char(vim.fn.getchar())
+    if mark:match("%a") then
+        vim.cmd("delmark " .. mark)
+    else
+        print("Invalid mark. Please use a letter (a-z, A-Z).")
+    end
+end, { desc = "Delete mark" })
+
+vim.keymap.set("n", "Q", function()
+	vim.diagnostic.open_float(0, {scope="line"})
+end)
+
 if vim.fn.has('win32') == 1 then
     vim.cmd("language en_US")
     vim.keymap.set("n", "<leader>r", ":!explorer %:h<CR><CR>")
 elseif vim.fn.has('unix') == 1 then
     vim.keymap.set("n", "<leader>r", ":silent !xdg-open %:h &<CR>")
 end
+
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  command = [[%s/\s\+$//e]],
+})
