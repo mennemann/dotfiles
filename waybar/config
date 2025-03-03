@@ -4,8 +4,6 @@
 
 	"modules-left": [
         "custom/wlogout",
-        "cpu",
-        "memory",
 		"hyprland/workspaces",
 		"tray"
 	],
@@ -14,42 +12,43 @@
 	],
 	"modules-right": [
         "idle_inhibitor",
+        "custom/pacman-updates",
         "wireplumber",
         "network",
         "bluetooth",
         "battery",
 		"clock"
 	],
+
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "default": "",
-            "active": "",
-            "urgent": ""
-	    }
+            "1": "󰲡 ",
+            "2": "󰲣 ",
+            "3": "󰲥 ",
+            "4": "󰲧 ",
+            "5": "󰲩 ",
+            "6": "󰲫 ",
+            "7": "󰲭 ",
+            "8": "󰲯 ",
+            "9": "󰲱 ",
+            "active": " ",
+        },
     },
 	"clock": {
         "interval": 1,
-        "format": "  {:%H:%M:%S}",
-        "format-alt": "  {:%a %d.%m.%Y}",
+        "format": "{:%H:%M:%S}",
+        "format-alt": "{:%a %d.%m.%Y}",
 		"tooltip": false
 	},
 	"hyprland/window": {
 		"max-length": 70,
 		"separate-outputs": false
 	},
-	"memory": {
-		"interval": 5,
-		"format": "󰍛 {}%"
-	},
-	"cpu": {
-		"interval": 5,
-		"format": "󰧑 {usage:2}%"
-	},
     "bluetooth": {
-        "format-on": "󰂯",
         "format-off": "󰂲",
-        "format-disabled": "",
+        "format-disabled": "󰂲",
+        "format-on": "󰂯",
         "format-connected": "󰂱 {num_connections}",
         "tooltip-format-connected": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -58,19 +57,27 @@
     "network": {
         "interval": 3,
         "format-icons": [
-            "󰤯",
-            "󰤟",
-            "󰤢",
-            "󰤥",
-            "󰤨"
+            "󰤯 ",
+            "󰤟 ",
+            "󰤢 ",
+            "󰤥 ",
+            "󰤨 "
         ],
         "format-wifi": "{icon}",
-        "format-ethernet": "",
-        "format-disconnected": "󰤮",
+        "format-ethernet": " ",
+        "format-disconnected": "󰤮 ",
         "on-click": "kitty -e nmtui",
         "tooltip-format-wifi": "SSID: {essid}\n{ifname}: {ipaddr}",
         "tooltip-format-ethernet": "{ifname}: {ipaddr}",
         "tooltip-format-disconnected": "Disconnected"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󱎴 ",
+            "deactivated": "󰍹 "
+        },
+        "tooltip": false
     },
 	"tray": {
 		"icon-size": 20,
@@ -102,12 +109,18 @@
     },
     "wireplumber": {
         "format": "{icon}",
-        "format-muted": "",
-        "format-icons": ["",""],
+        "format-muted": " ",
+        "format-icons": [" "," "],
     },
     "custom/wlogout": {
-        "format": "⏻",
+        "format": "⏻ ",
         "on-click": "wlogout",
+        "tooltip": false
+    },
+    "custom/pacman-updates": {
+        "format": "{}",
+        "exec": "bash -c 'updates=$(checkupdates | wc -l); if [ \"$updates\" -gt 0 ]; then echo \"󰏕 $updates\"; else echo \"\"; fi'",
+        "interval": 300,
         "tooltip": false
     }
 }

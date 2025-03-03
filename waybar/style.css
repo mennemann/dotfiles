@@ -38,31 +38,20 @@ tooltip label {
 
 #window {
     color: #6272a4;
-	padding: 4px 10px;
 }
 
-#memory {
-	color: #ffb86c;
-	padding: 4px 10px;
-}
-
-#cpu {
-	color: #8be9fd;
-	padding: 4px 10px;
-}
 
 #tray {
-	padding: 4px 10px;
+	padding-left: 4px;
 }
 
-#disk {
-	color: #50fa7b;
-	padding: 4px 10px;
+#idle_inhibitor {
+	padding: 4px 5px;
 }
 
 #battery {
     color: #f8f8f2;
-	padding: 4px 10px;
+	padding: 4px 5px;
 }
 
 #battery.critical {
@@ -71,25 +60,31 @@ tooltip label {
 
 #network {
     color: #f8f8f2;
-	padding: 4px 10px;
+	padding: 4px 5px;
 }
 
 #bluetooth {
     color: #f8f8f2;
-	padding: 4px 10px;
+	padding: 4px 5px;
+    padding-right: 8px;
 }
 
 #clock {
     color: #50fa7b;
-	padding: 4px 10px;
+    padding-left: 12px;
+	padding-right: 16px;
 }
 
 #wireplumber {
-    padding: 4px 10px;
+    padding: 4px 5px;
 }
 
 #wireplumber.muted tooltip {
     color: #000000;
+}
+
+#custom-pacman-updates {
+    padding: 4px 5px;
 }
 
 #custom-wlogout {
