@@ -3,7 +3,7 @@
 	font-family: "JetBrainsMono NF";
 
 	margin: 0;
-	padding: 1px 0;
+	padding: 0;
 }
 
 window#waybar {
@@ -29,10 +29,7 @@ tooltip label {
 
 #workspaces button:hover {
 	background: #282a36;
-	border: #282a36;
     color: #bd93f9;
-
-	transition: none;
 	box-shadow:none;
 }
 
