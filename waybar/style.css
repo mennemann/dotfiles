@@ -1,25 +1,63 @@
 * {
-	font-size: 14px;
+	font-size: 13px;
 	font-family: "JetBrainsMono NF";
 
 	margin: 0;
 	padding: 0;
+    border: 0;
+
+    border-radius: 6px;
 }
 
 window#waybar {
 	background: #282a36;
-	color: #f8f8f2;
     border-radius: 0;
+}
+
+window#waybar > * {
+	margin: 3px 0;
+    color: #282a36;
 }
 
 tooltip {
 	background: #282a36;
 	border: 1px solid #bd93f9;
-	border-radius: 10px;
+	border-radius: 6px;
 }
 
 tooltip label {
 	color: #f8f8f2;
+}
+
+
+
+
+
+
+#custom-wlogout {
+    background: #ff5050;
+    color: #f8f8f2;
+    margin: 0 2px;
+	padding: 0 9px;
+
+    margin-left: 12px;
+    padding-right: 12px;
+}
+
+
+#custom-pacman-updates {
+    background: #101010;
+    color: #f8f8f2;
+    margin: 0 2px;
+	padding: 0 6px;
+}
+
+
+#workspaces {
+    background: #101010;
+    margin: 0 2px;
+
+    padding-left: 8px;
 }
 
 #workspaces button {
@@ -28,63 +66,80 @@ tooltip label {
 }
 
 #workspaces button:hover {
-	background: #282a36;
+    background: transparent;
     color: #bd93f9;
 	box-shadow:none;
 }
+
+
+#tray {
+    background: #101010;
+    margin: 0 2px;
+	padding: 0 6px;
+}
+
+
 
 #window {
     color: #6272a4;
 }
 
 
-#tray {
-	padding-left: 4px;
-}
 
 #idle_inhibitor {
-	padding: 4px 5px;
+    background: #e0ffff;
+    margin: 0 2px;
+	padding: 0 6px;
+
+    padding-right: 10px;
 }
 
-#battery {
-    color: #f8f8f2;
-	padding: 4px 5px;
-}
 
-#battery.critical {
-	background: #ff3535;
+#connectivity {
+    background: #ffdfba;
+    margin: 0 2px;
+	padding: 0 6px;
 }
 
 #network {
-    color: #f8f8f2;
-	padding: 4px 5px;
+    margin-right: 6px;
 }
 
 #bluetooth {
-    color: #f8f8f2;
-	padding: 4px 5px;
-    padding-right: 8px;
 }
 
-#clock {
-    color: #50fa7b;
-    padding-left: 12px;
-	padding-right: 16px;
-}
 
 #wireplumber {
-    padding: 4px 5px;
+    background: #FFEE8C;
+    margin: 0 2px;
+	padding: 0 6px;
 }
 
-#wireplumber.muted tooltip {
-    color: #000000;
+
+#battery {
+    background: #50fa7b;
+    margin: 0 2px;
+	padding: 0 6px;
 }
 
-#custom-pacman-updates {
-    padding: 4px 5px;
+#battery.warning {
+    color: unset;
+    background: #ffaa20;
 }
 
-#custom-wlogout {
-	padding-left: 16px;
-	padding-right: 12px;
+#battery.critical {
+	background: #ff5050;
+}
+
+#battery.charging, #battery.plugged {
+	background: #5ac9ff;
+}
+
+
+#clock {
+    color: #f8f8f2;
+    margin: 0 2px;
+    padding: 0 6px;
+
+    margin-right: 12px;
 }

@@ -1,10 +1,10 @@
 {
 	"layer": "top",
 	"position": "top",
-    "height": 32,
 
 	"modules-left": [
         "custom/wlogout",
+        "custom/pacman-updates",
 		"hyprland/workspaces",
 		"tray"
 	],
@@ -13,14 +13,36 @@
 	],
 	"modules-right": [
         "idle_inhibitor",
-        "custom/pacman-updates",
+        "group/connectivity",
         "wireplumber",
-        "network",
-        "bluetooth",
         "battery",
 		"clock"
 	],
 
+    "group/connectivity": {
+        "orientation": "horizontal",
+        "modules": [
+            "network",
+            "bluetooth",
+        ]
+    },
+
+
+
+
+
+    "custom/wlogout": {
+        "format": "⏻",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+    "custom/pacman-updates": {
+        "format": "{}",
+        "exec": "bash -c 'updates=$(checkupdates | wc -l); if [ \"$updates\" -gt 0 ]; then echo \"󰏕 $updates\"; else echo \"\"; fi'",
+        "on-click": "kitty bash -c 'echo \"Running: sudo pacman -Syu\";sudo pacman -Syu;echo \"Press [Enter] to exit\";read'",
+        "interval": 300,
+        "tooltip": false
+    },
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -36,24 +58,23 @@
             "active": " ",
         },
     },
-	"clock": {
-        "interval": 1,
-        "format": "{:%H:%M:%S}",
-        "format-alt": "{:%a %d.%m.%Y}",
-		"tooltip": false
+	"tray": {
+		"icon-size": 18,
+		"spacing": 8
 	},
+
 	"hyprland/window": {
 		"max-length": 70,
 		"separate-outputs": false
 	},
-    "bluetooth": {
-        "format-off": "󰂲",
-        "format-disabled": "󰂲",
-        "format-on": "󰂯",
-        "format-connected": "󰂱 {num_connections}",
-        "tooltip-format-connected": "{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "on-click": "blueman-manager"
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󱎴",
+            "deactivated": "󰍹"
+        },
+        "tooltip": false
     },
     "network": {
         "interval": 3,
@@ -72,18 +93,21 @@
         "tooltip-format-ethernet": "{ifname}: {ipaddr}",
         "tooltip-format-disconnected": "Disconnected"
     },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "󱎴 ",
-            "deactivated": "󰍹 "
-        },
-        "tooltip": false
+    "bluetooth": {
+        "format-off": "󰂲",
+        "format-disabled": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱 {num_connections}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
     },
-	"tray": {
-		"icon-size": 20,
-		"spacing": 8
-	},
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": " ",
+        "format-icons": [" "," "],
+        "tooltip-format": "{node_name} {volume}%"
+    },
     "battery": {
         "interval": 5,
         "states": {
@@ -108,21 +132,10 @@
         "on-click": "",
         "tooltip": false
     },
-    "wireplumber": {
-        "format": "{icon}",
-        "format-muted": " ",
-        "format-icons": [" "," "],
-        "tooltip-format": "{node_name} {volume}%"
-    },
-    "custom/wlogout": {
-        "format": "⏻ ",
-        "on-click": "wlogout",
-        "tooltip": false
-    },
-    "custom/pacman-updates": {
-        "format": "{}",
-        "exec": "bash -c 'updates=$(checkupdates | wc -l); if [ \"$updates\" -gt 0 ]; then echo \"󰏕 $updates\"; else echo \"\"; fi'",
-        "interval": 300,
-        "tooltip": false
-    }
+	"clock": {
+        "interval": 1,
+        "format": "  {:%H:%M:%S}",
+        "format-alt": "  {:%a %d.%m.%Y}",
+		"tooltip": false
+	},
 }
