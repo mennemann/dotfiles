@@ -40,7 +40,8 @@
         "format": "{}",
         "exec": "bash -c 'updates=$(checkupdates | wc -l); if [ \"$updates\" -gt 0 ]; then echo \"󰏕 $updates\"; else echo \"\"; fi'",
         "on-click": "kitty bash -c 'echo \"Running: sudo pacman -Syu\";sudo pacman -Syu;echo \"Press [Enter] to exit\";read'",
-        "interval": 300,
+        "restart-interval": 300,
+        "signal": 5,
         "tooltip": false
     },
     "hyprland/workspaces": {
@@ -56,6 +57,7 @@
             "8": "󰲯 ",
             "9": "󰲱 ",
             "active": " ",
+            "urgent": " "
         },
     },
 	"tray": {

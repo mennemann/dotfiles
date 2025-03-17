@@ -56,13 +56,12 @@ tooltip label {
 #workspaces {
     background: #101010;
     margin: 0 2px;
-
-    padding-left: 8px;
+    padding: 0 5px;
 }
 
 #workspaces button {
 	color: #f8f8f2;
-	padding-right: 5px;
+    padding-left: 5px;
 }
 
 #workspaces button:hover {
