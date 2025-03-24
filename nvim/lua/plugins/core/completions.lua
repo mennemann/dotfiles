@@ -10,7 +10,6 @@ return {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-path",
-            "micangl/cmp-vimtex",
         },
         config = function()
             local cmp = require("cmp")
@@ -37,7 +36,6 @@ return {
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
-                    { name = 'vimtex', },
                     { name = "path" },
                 }, {
                     { name = "buffer" },
