@@ -55,6 +55,7 @@ elseif vim.fn.has('unix') == 1 then
     vim.keymap.set("n", "<leader>r", ":silent !xdg-open %:h &<CR>")
 end
 
+vim.cmd("autocmd FileType hyprlang setlocal commentstring=#\\ %s")
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",

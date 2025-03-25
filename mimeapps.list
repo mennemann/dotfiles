@@ -16,5 +16,7 @@ x-scheme-handler/mailto=userapp-Thunderbird-A178T2.desktop
 message/rfc822=userapp-Thunderbird-A178T2.desktop
 x-scheme-handler/mid=userapp-Thunderbird-A178T2.desktop
 
+audio/mp3=vlc.desktop
+
 [Removed Associations]
 code.desktop=
